@@ -110,8 +110,8 @@ def get_words_rep(text, nlp, pos_to_remove=['PUNCT'], normed=True,
     for w in doc:
         if w.pos_ not in pos_to_remove:
             words.append(w.text+"{"+w.lemma_+","+w.pos_+"}")
-
     return words
+
 def get_lemmasR_(text, nlp, lemmatize=True):
 
     text = clean_text(str(text)).lower()    
@@ -196,7 +196,8 @@ def get_lemmasALL_(text, nlp, lemmatize=True):
     for token in doc:
         # if token.pos_ in ["NUM","PROPN","NOUN","VERB","ADJ","ADV","PRON","ADP","SCONJ"] or token.dep_ =="neg":
         #     if token.lemma_ !="be":
-        words.append(token.lemma_)
+        if token.pos_ not in ["PUNCT"]:
+            words.append(token.lemma_)
         #print(token.text, token.lemma_, token.pos_, token.tag_, token.dep_,
         #        token.shape_, token.is_alpha, token.is_stop)
         

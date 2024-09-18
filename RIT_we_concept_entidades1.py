@@ -564,7 +564,7 @@ for i in range(len(textos)):
     tp1,tp2=jaro_distance(s1, s2,sinT,sinH,HipT,hipH)
     new_data['Jaro-Winkler_rit'].append(tp2)
     
-    # proceso de eliminación de entidades y overlap    
+    # proceso de eliminación de entidades y overlap las cosas que están compartiendo    
     lista_entidades_no_match=[]
     lista_entidades_distintas=[]
     lista_entidades_contenidas=[]
@@ -960,6 +960,6 @@ for i in range(len(textos)):
     print(ma)
 
 df_resultados = pd.DataFrame(new_data)
-df_resultados.to_pickle("salida/nuevo1/"+sys.argv[1]+"_.pickle")
+df_resultados.to_pickle("salida/nuevo2/"+sys.argv[1]+"_.pickle")
 fin = time.time()
 print("Tiempo que se llevo:",round(fin-inicio,2)," segundos")
